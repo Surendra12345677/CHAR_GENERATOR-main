@@ -1,0 +1,100 @@
+/* Styl dla overlay modala */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styl dla samego modala */
+.modal {
+    background-color: #1e1e1e;
+    padding: 0.8vw;
+    border-radius: 0.5vw;
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.5);
+    width: 18vw;
+    text-align: center;
+}
+
+.modal h3 {
+    /* background-color: #007bff; */
+    margin-bottom: 1.0vw;
+    margin-top: 0.0vw;
+    color: #ffffff;
+    font-size: 0.9vw;
+}
+
+.modal input {
+    width: calc(100% - 1vw);
+    /* Uwzględniamy padding */
+    padding: 0.4vw;
+    margin-bottom: 1vw;
+    border: 0.2vw solid #555;
+    border-radius: 0.5vw;
+    background-color: #333;
+    color: #ffffff;
+    font-size: 0.7vw;
+}
+
+.modal input::placeholder {
+    color: #888;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    /* Przyciski wyśrodkowane w poziomie */
+    gap: 1.0vw;
+    /* Odstęp między przyciskami */
+}
+
+.modal-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3vw 0.3vw;
+    border: none;
+    border-radius: 0.4vw;
+    cursor: pointer;
+    font-size: 0.8vw;
+    transition: background-color 0.3s ease;
+    width: 18vw;
+    /* Stała szerokość przycisków */
+}
+
+.modal-buttons button:first-child {
+    background-color: #555;
+    color: #ffffff;
+}
+
+.modal-buttons button:first-child:hover {
+    background-color: #777;
+}
+
+.modal-buttons button:last-child {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.modal-buttons button:last-child:hover {
+    background-color: #0056b3;
+}
+
+.modal-buttons button:disabled {
+    background-color: #444;
+    cursor: not-allowed;
+}
+
+.button-icon {
+    width: 1.2vw;
+    height: 1.2vw;
+    margin-right: 1vw;
+    /* Odstęp między ikoną a tekstem */
+    color: inherit;
+    /* Ikona dziedziczy kolor tekstu przycisku */
+}

@@ -1,0 +1,138 @@
+.hd44780-character {
+    color: #ffffff;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Włącz Flexbox */
+    justify-items: center;
+    /* Wyśrodkuj w poziomie */
+    align-items: center;
+    /* Wyśrodkuj w pionie */
+}
+
+.pixel-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15vw;
+    height:10vw;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.pixel-grid-func-buttons {
+    width: 90%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5vw;
+    margin: 0.1vw;
+    justify-items: center;
+    align-items: center;
+}
+
+.pixel-grid-button {
+    width: 100%;
+    max-width: 10vw;
+    max-height: 2vW;
+    padding: 0.3vw;
+    background-color: #333;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    font-size: 0.7vw;
+    transition: background-color 0.3s ease;
+    margin-top: 1vw;
+}
+
+.pixel-grid-button:hover {
+    background-color: #555;
+    /* Jaśniejszy odcień po najechaniu */
+}
+
+
+.pixel-row {
+    display: flex;
+    gap: 0.1vw;
+    /* Użyj jednostki względnej dla odstępów między pikselami */
+}
+
+.pixel {
+    width: 0.85vw;
+    /* Użyj jednostki względnej dla szerokości piksela */
+    height: 0.85vw;
+    /* Użyj jednostki względnej dla wysokości piksela */
+    background-color: #00ff00;
+    /* Jasne tło dla pikseli */
+    border: 1px solid #555;
+    /* Ramka piksela */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.pixel.active {
+    background-color: #333;
+    /* Ciemny kolor dla zapalonych pikseli */
+}
+
+.pixel:hover {
+    background-color: #b0b0b0;
+    /* Jaśniejszy odcień po najechaniu */
+}
+
+.hd44780-character.inactive {
+    opacity: 0.5;
+    position: relative;
+    /* Dla tooltipa */
+}
+
+.hd44780-character.inactive .pixel-grid {
+    pointer-events: none;
+    /* Blokuje rysowanie na pikselach, ale nie tooltip */
+}
+
+.hd44780-character.inactive .pixel-grid-func-buttons {
+    pointer-events: none;
+    /* Blokuje rysowanie na pikselach, ale nie tooltip */
+}
+
+.hd44780-character.inactive::after {
+    content: "Select a character to edit!";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.8vw 1.2vw;
+    /* Użyj jednostki względnej dla paddingu */
+    border-radius: 0.5vw;
+    /* Użyj jednostki względnej dla zaokrąglenia */
+    font-size: 1.4vw;
+    /* Użyj jednostki względnej dla rozmiaru czcionki */
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    /* Zapobiega blokowaniu interakcji pod tooltipem */
+}
+
+.hd44780-character.inactive:hover::after {
+    opacity: 1;
+}
+
+.hd44780-character.error {
+    border: 2px solid #ff4444;
+    padding: 1.5vw;
+    /* Użyj jednostki względnej dla paddingu */
+}
+
+.error-message {
+    color: #ff4444;
+    font-weight: bold;
+    margin-top: 1vw;
+    /* Użyj jednostki względnej dla marginesu */
+    font-size: 1.4vw;
+    /* Użyj jednostki względnej dla rozmiaru czcionki */
+}
